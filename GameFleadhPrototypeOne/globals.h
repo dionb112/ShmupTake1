@@ -1,4 +1,5 @@
 #pragma once
+#include <SFML\Graphics.hpp>
 
 const sf::Color BLUE{ 0,151,244,255 };
 const sf::Color TAN{ 251,149,0,255 };
@@ -10,4 +11,8 @@ const sf::Color PINK{ 252,150,197,255 };
 const sf::Color GRAY{ 25,25,25,255 };
 const sf::Color BLACK{ 0,0,0,255 };
 const sf::Color WHITE{ 255,255,255,255 };
+
+const int BORDER_LEFT_TOP{ 32 };
+const int BORDER_RIGHT{ 1248 };
+const int BORDER_BOTTOM{ 688 };
 

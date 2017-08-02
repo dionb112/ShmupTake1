@@ -47,7 +47,7 @@ void Game::processEvents()
 	sf::Event event;
 	while (m_window.pollEvent(event))
 	{
-		if (event.type = sf::Event::Closed)
+		if (sf::Event::Closed == event.type )
 		{
 			m_window.close();
 		}
@@ -59,17 +59,24 @@ void Game::processEvents()
 }
 void Game::processKeyPress(sf::Event event)
 {
-	if (event.mouseButton.button == sf::Mouse::Left)
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
+		player.setMoving(true);
+	}
+	else
+	{
+		player.setMoving(false);
 	}
 }
 void Game::update(sf::Time)
 {
-	
+	sf::Vector2i mousePos = sf::Mouse::getPosition(m_window);
+	player.update(mousePos);
 }
 void Game::render()
 {
 	m_window.clear(WHITE);
+	player.render(m_window);
 	m_window.draw(m_instructions);
 	m_window.display();
 }

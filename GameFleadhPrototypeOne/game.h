@@ -1,12 +1,13 @@
 #ifndef GAME
 #define GAME
-#include <SFML\Graphics.hpp>
 #include <iostream>
 #include "globals.h"
+#include "player.h"
 
 class Game
 {
 private:
+	Player player;
 	sf::RenderWindow m_window;
 	void init();
 	void render();
@@ -17,7 +18,6 @@ private:
 
 	sf::Text m_instructions;
 	sf::Font m_font;
-
 public: 
 	Game();
 	void run();
