@@ -7,6 +7,7 @@ Game::Game() :
 }
 void Game::init()
 {
+	m_counter = 60;
 	setupText();
 }
 void Game::setupText()
@@ -62,6 +63,18 @@ void Game::processKeyPress(sf::Event event)
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 		player.setMoving(true);
+		if (m_counter >= 7)
+		{
+			for (int i = 0; i < 10; i++)
+			{
+				if (!bullets[i].getAlive())
+				{
+					bullets[i].fire(static_cast<sf::Vector2f>(sf::Vector2i{ sf::Mouse::getPosition(m_window) }));
+					break;
+				}
+			}
+			m_counter = 0;
+		}
 	}
 	else
 	{
@@ -70,13 +83,24 @@ void Game::processKeyPress(sf::Event event)
 }
 void Game::update(sf::Time)
 {
+
+	m_counter++;
 	sf::Vector2i mousePos = sf::Mouse::getPosition(m_window);
 	player.update(mousePos);
+	sf::Vector2f playerPos = player.getPos();
+	for (int i = 0; i < 10; i++)
+	{
+		bullets[i].update(playerPos);
+	}
 }
 void Game::render()
 {
 	m_window.clear(WHITE);
 	player.render(m_window);
+	for (int i = 0; i < 10; i++)
+	{
+		bullets[i].render(m_window);
+	}
 	m_window.draw(m_instructions);
 	m_window.display();
 }

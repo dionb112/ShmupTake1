@@ -7,6 +7,7 @@ public:
 	void update(sf::Vector2i mousePos);
 	void render(sf::RenderWindow &window);
 	void setMoving(bool newMoving);
+	sf::Vector2f getPos();
 private:
 	void move(sf::Vector2i mousePos);
 	void die();

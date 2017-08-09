@@ -26,6 +26,10 @@ void Player::setMoving(bool newMoving)
 {
 	m_isMoving = newMoving;
 }
+sf::Vector2f Player::getPos()
+{
+	return m_pos;
+}
 void Player::move(sf::Vector2i mousePos)
 {
 	if (m_isMoving)
