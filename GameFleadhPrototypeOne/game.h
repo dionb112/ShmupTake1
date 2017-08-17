@@ -22,6 +22,7 @@ private:
 	sf::Font m_font;
 	int m_counter;
 	int m_bulletCount;
+	bool m_mouseDown;
 public: 
 	Game();
 	void run();
