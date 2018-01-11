@@ -19,7 +19,7 @@ void Game::setupText()
 	}
 
 	m_instructions.setFont(m_font);
-	m_instructions.setColor(BLACK);
+	m_instructions.setFillColor(BLACK);
 	m_instructions.setCharacterSize(18);
 	m_instructions.setPosition(10, 10);
 	m_instructions.setString("The only control is this. Left mouse button to shoot and also to move.");
